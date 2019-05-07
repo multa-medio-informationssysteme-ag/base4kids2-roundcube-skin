@@ -1,7 +1,0 @@
-{
-	"name": "Base4Kids 2 (extends Elastic)",
-	"author": "MULTA MEDIO Informationssysteme AG, Würzburg, Deutschland",
-	"license": "GNU Affero General Public License",
-	"license-url": "http://www.gnu.org/licenses/agpl.html",
-	"extends": "elastic"
-}

@@ -1,0 +1,195 @@
+/**
+ * Styles for the Kolab web client variant of the Roundcube Elastic skin
+ *
+ * Copyright (C) 2018-2019, Kolab Systems AG <contact@kolabsystems.com>
+ *
+ * The contents of this folder can be redistributed and/or modified
+ * under the terms of the GNU Affero General Public License as published
+ * by the Free Software Foundation, either version 3 of the License,
+ * or (at your option) any later version.
+ */
+
+@font-face {
+  font-family: 'Open Sans';
+  font-weight: 300;
+  font-style: normal;
+  src: url("../fonts/open-sans/Light/OpenSans-Light.woff2") format("woff2"), url("../fonts/open-sans/Light/OpenSans-Light.woff") format("woff");
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-weight: 300;
+  font-style: italic;
+  src: url("../fonts/open-sans/LightItalic/OpenSans-LightItalic.woff2") format("woff2"), url("../fonts/open-sans/LightItalic/OpenSans-LightItalic.woff") format("woff");
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-weight: normal;
+  font-style: normal;
+  src: url("../fonts/open-sans/Regular/OpenSans-Regular.woff2") format("woff2"), url("../fonts/open-sans/Regular/OpenSans-Regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-weight: normal;
+  font-style: italic;
+  src: url("../fonts/open-sans/Italic/OpenSans-Italic.woff2") format("woff2"), url("../fonts/open-sans/Italic/OpenSans-Italic.woff") format("woff");
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-weight: 600;
+  font-style: normal;
+  src: url("../fonts/open-sans/Semibold/OpenSans-Semibold.woff2") format("woff2"), url("../fonts/open-sans/Semibold/OpenSans-Semibold.woff") format("woff");
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-weight: 600;
+  font-style: italic;
+  src: url("../fonts/open-sans/SemiboldItalic/OpenSans-SemiboldItalic.woff2") format("woff2"), url("../fonts/open-sans/SemiboldItalic/OpenSans-SemiboldItalic.woff") format("woff");
+}
+
+body, button, input, optgroup, select, textarea, .popover {
+    font-family: 'Open Sans', Roboto, sans-serif;
+}
+
+// Modify taskmenu behavior
+#taskmenu {
+    span.inner {
+        text-transform: uppercase;
+    }
+
+    @media screen and (min-width: (@screen-width-medium + 1px)) and (min-height: 640px) {
+        span.inner {
+            font-size: 65%;
+            font-weight: bold;
+        }
+
+        a:before {
+            line-height: 1.2;
+            font-size: 180%;
+            height: 1.9rem !important;
+        }
+    }
+
+    @media screen and (min-width: (@screen-width-small + 1px)) {
+        a.logout:not(:hover) {
+            color: @color-taskmenu-button !important;
+        }
+    }
+
+    .action-buttons {
+        display: none;
+    }
+}
+
+#layout-menu {
+    html:not(.layout-phone) & {
+        border-right: 1px solid @color-layout-border;
+        .popover-header {
+            border-bottom: 1px solid @color-layout-border;
+        }
+    }
+
+    @media screen and (min-width: (@screen-width-xs + 1px)) and (max-width: (@screen-width-medium)) {
+        #taskmenu, .special-buttons {
+            width: 41px;
+            overflow: hidden;
+        }
+    }
+
+    @media screen and (min-width: (@screen-width-medium + 1px)) {
+        #taskmenu, .special-buttons {
+            width: 5.5rem;
+            overflow: hidden;
+        }
+    }
+
+    @media screen and (max-height: 640px) and (min-width: (@screen-width-small + 1px)) {
+        #taskmenu, .special-buttons {
+            width: 41px !important;
+        }
+    }
+
+    .popover-header {
+        img {
+            width: 100%;
+            max-width: 100%;
+
+            @media screen and (min-width: (@screen-width-medium + 1px)) and (min-height: 640px) {
+                padding: .5rem;
+            }
+
+            html.layout-phone & {
+                padding: .5rem;
+                width: auto;
+            }
+        }
+
+        html.layout-phone & {
+            width: unset;
+            max-height: @layout-header-height;
+        }
+    }
+}
+
+.watermark {
+    background-image: url(../images/watermark.svg) !important;
+    background-size: 60% !important;
+    background-blend-mode: unset !important;
+
+    &:before {
+        background: rgba(255, 255, 255, 0.75) !important;
+    }
+}
+
+// Display the Compose button in mail toolbar
+body.task-mail .menu a.compose {
+    display: block !important;
+}
+
+// Move the contact photo in mail preview to the right
+#message-header .short-header img.contactphoto {
+    order: 2;
+    margin: 0 0 0 1rem;
+}
+
+// Make the content frame navigation smaller
+.content-frame-navigation {
+    height: @layout-footer-small-height !important;
+    line-height: @layout-footer-small-height !important;
+    min-height: @layout-footer-small-height !important;
+
+    a {
+        max-width: 8em;
+        padding: 0;
+        line-height: @layout-footer-small-height;
+
+        &:before {
+           display: none !important;
+           height: @layout-footer-small-height !important;
+           line-height: @layout-footer-small-height !important;
+        }
+
+        &.prev,
+        &.next {
+            padding: 0;
+
+            &:before {
+                display: block !important;
+                line-height: 1.8;
+            }
+
+            span.inner {
+                display: none;
+            }
+        }
+
+        span.inner {
+            color: @color-link;
+            font-weight: bold;
+        }
+    }
+}
